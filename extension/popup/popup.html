@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Natural Speed</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Natural Speed</h1>
+      <p class="tagline">Pitch rises and falls with speed — no normalization.</p>
+    </header>
+
+    <div class="speed-display">
+      <input
+        id="speed-input"
+        type="text"
+        inputmode="decimal"
+        spellcheck="false"
+        autocomplete="off"
+        aria-label="Playback speed (type a value and press Enter)"
+        value="1.00"
+      /><span class="unit">×</span>
+    </div>
+
+    <input
+      id="speed-slider"
+      type="range"
+      min="0.25"
+      max="4"
+      step="0.05"
+      value="1"
+    />
+
+    <div class="presets" role="group" aria-label="Speed presets">
+      <button type="button" data-speed="0.5">0.5×</button>
+      <button type="button" data-speed="0.75">0.75×</button>
+      <button type="button" data-speed="1">1×</button>
+      <button type="button" data-speed="1.25">1.25×</button>
+      <button type="button" data-speed="1.5">1.5×</button>
+      <button type="button" data-speed="2">2×</button>
+    </div>
+
+    <div class="row">
+      <button type="button" id="btn-down" title="Alt+Shift+,">−</button>
+      <button type="button" id="btn-reset" title="Alt+Shift+0">Reset</button>
+      <button type="button" id="btn-up" title="Alt+Shift+.">+</button>
+    </div>
+
+    <p class="hint">Works on any tab with &lt;video&gt; or &lt;audio&gt; (YouTube, podcasts, etc.).</p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

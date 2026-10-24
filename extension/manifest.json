@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Natural Speed",
+  "version": "1.0.0",
+  "description": "Speed up or slow down video and audio with natural pitch change (no pitch normalization).",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "commands": {
+    "speed-up": {
+      "suggested_key": {
+        "default": "Alt+Shift+Period"
+      },
+      "description": "Increase playback speed"
+    },
+    "speed-down": {
+      "suggested_key": {
+        "default": "Alt+Shift+Comma"
+      },
+      "description": "Decrease playback speed"
+    },
+    "speed-reset": {
+      "suggested_key": {
+        "default": "Alt+Shift+0"
+      },
+      "description": "Reset playback speed to 1×"
+    }
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  }
+}
